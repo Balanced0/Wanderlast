@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { LuMapPin } from "react-icons/lu";
 import { FaRegCalendar } from "react-icons/fa6";
+import { Button } from "@heroui/react";
+import { EditModal } from "@/components/EditModal";
 
 const DestinationDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -11,7 +13,9 @@ const DestinationDetailsPage = async ({ params }) => {
     destination;
   return (
     <div className="max-w-7xl mx-auto">
+      <EditModal destination={destination}></EditModal>
       <Image
+      className="w-full h-100 object-cover"
         alt={destinationName}
         src={imageUrl}
         width={500}
