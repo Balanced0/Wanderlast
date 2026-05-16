@@ -3,6 +3,7 @@ import { LuMapPin } from "react-icons/lu";
 import { FaRegCalendar } from "react-icons/fa6";
 import { Button } from "@heroui/react";
 import { EditModal } from "@/components/EditModal";
+import { DeleteAlert } from "@/components/DeleteAlert";
 
 const DestinationDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -13,9 +14,12 @@ const DestinationDetailsPage = async ({ params }) => {
     destination;
   return (
     <div className="max-w-7xl mx-auto">
-      <EditModal destination={destination}></EditModal>
+      <div className="flex justify-end gap-3 items-center">
+        <EditModal destination={destination}></EditModal>
+        <DeleteAlert destination={destination}></DeleteAlert>
+      </div>
       <Image
-      className="w-full h-100 object-cover"
+        className="w-full h-100 object-cover"
         alt={destinationName}
         src={imageUrl}
         width={500}
